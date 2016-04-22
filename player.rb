@@ -1,7 +1,8 @@
 class Player
-	attr_reader :color, :name
+	attr_reader :name, :color
+
 	def initialize(input)
-	@color = input.fetch(:color)
-	@name = input.fetch(:name)
+		@name = input.fetch(:name)
+		@color = input.fetch(:color)
 	end
 end

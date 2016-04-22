@@ -1,16 +1,12 @@
 require_relative 'cell'
-require_relative 'player'
 require_relative 'board'
-require_relative 'core_extensions'
+require_relative 'player'
 require_relative 'game'
+require_relative 'core_extensions'
 
+deepak = Player.new(name: "Deepak", color: "X")
+kiran = Player.new(name: "Kiran", color: "O")
+puts deepak.name
+game = Game.new([deepak, kiran])
 
-
-puts "Welcome to tic tac toe"
-
-deepak = Player.new({color:'X', name: 'deepak'})
-kiran = Player.new({color: 'O', name: 'kiran'})
-players = [deepak, kiran]
-Game.new(players).play
-
-
+game.play
