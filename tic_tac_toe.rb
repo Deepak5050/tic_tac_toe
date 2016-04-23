@@ -10,3 +10,4 @@ puts deepak.name
 game = Game.new([deepak, kiran])
 
 game.play
+

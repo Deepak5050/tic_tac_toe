@@ -17,8 +17,11 @@ class Game
 
 	def get_move
 		input = gets.chomp
+		input = check_move(input)
 		board.get_grid_co_ords(input)
 	end
+
+
 
 	def play
 		welcome_message
@@ -39,8 +42,10 @@ class Game
 
 	private
 	def welcome_message
-		"welcome to TIC TAC TOE game"
-		""
+		puts "welcome to TIC TAC TOE game"
+		puts ""
+		puts "#{current_player.name} is selected randomly as first player"
+		board.updated_grid
 	end
 
 	def game_over_message
@@ -48,4 +53,32 @@ class Game
 		puts "Game ended in tie" if board.game_over == :draw
 	end
 
+	def check_move(input)
+		array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+		while true
+			x, y = input
+			if array.any? { | element | element === input.to_i}
+				return input
+				false
+
+				if board.get_cell(x, y).empty?
+					puts "cell occupied"
+					input = gets.chomp
+					input
+				else
+					return input
+					false
+				end	
+						
+			else
+				puts ""
+				puts "Please enter a number between 1 and 9 only"
+				puts ""
+				input = gets.chomp
+				input
+			end
+			true
+		end
+	end
+	
 end
